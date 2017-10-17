@@ -2,7 +2,7 @@
   <h2>welcome</h2>
 </template>
 <script>
-import api from '@/api'
+
 export default {
   data () {
     return {
@@ -10,7 +10,7 @@ export default {
   },
   methods:{
     getInfo(){
-      api.login.getUserInfo({id:1})
+      this.$api.login.getUserInfo({id:1})
         .then(data => {
           console.log(data)
         })
@@ -20,6 +20,7 @@ export default {
     }
   },
   created(){
+    this.getInfo()
     this.$router.push('/login')
   }
 }

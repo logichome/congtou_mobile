@@ -4,9 +4,14 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './vuex/store'
+import api from '@/api'
 import './assets/styles/reset.styl'
+import './assets/styles/mintui_reset.styl'
 Vue.config.productionTip = false
 
+import MintUI from 'mint-ui';
+Vue.use(MintUI);
+Vue.prototype.$api = api
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
