@@ -88,6 +88,7 @@ export default {
   
   .logo 
     position: absolute;
+    z-index 0
     height: 0.78rem;
     width: 0.78rem;
     top: 1.76rem;

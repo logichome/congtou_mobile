@@ -5,7 +5,7 @@
       <h2>邀请注册</h2>
     </div>
     <div class="input-box">
-      <input type="tel" maxlength="11" placeholder="请输入邀请码">
+      <input v-model="inviteCode" type="tel" maxlength="11" placeholder="请输入邀请码">
     </div>
     <div class="submit-box">
       <mt-button class="form-button" type="primary" size="large">下一步</mt-button>
@@ -16,39 +16,36 @@
         <input type="file" accept="image/*" @change="getQrcode" />
       </div>
     </div>
-    {{result}}
   </div>
 </template>
 <script>
+import { Toast,Indicator } from 'mint-ui';
 import gobackNav from '@/components/goback_nav'
 import QrCode from 'qrcode-reader'
 export default {
   data () {
     return {
-      result:'000'
+      inviteCode:''
     }
   },
   methods:{
     getQrcode(e){
+      Indicator.open({spinnerType:'fading-circle'});
       let qr = new QrCode();
       qr.callback = (error, result) => {
+        Indicator.close();
         if(error) {
-          console.log(123,error)
+          Toast('请选择清晰的二维码图片');
           return;
         }
-        this.result = result.result
-        console.log(result)
+        this.inviteCode = result.result
       }
       let file = e.target.files[0] || e.dataTransfer.files[0];
       let reader = new FileReader()
       reader.readAsDataURL(file)
       reader.onload = e => {
         qr.decode(e.target.result);
-
-        console.log(e.target.result)
       }
-      
-      
     }
   },
   components:{
