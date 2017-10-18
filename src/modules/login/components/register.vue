@@ -12,7 +12,9 @@
       <input type="tel" maxlength="11" placeholder="请输入验证码">
     </div>
     <div class="input-box">
-      <input class="password-input" onchange="this.value=this.value.replace(/[\u4E00-\u9FA5]/g,'')"  :type="showPassword?'text':'password'" placeholder="请输入设置密码">
+      <!-- <input class="password-input" onchange="this.value=this.value.replace(/[\u4E00-\u9FA5]/g,'')"  :type="showPassword?'text':'password'" placeholder="请输入设置密码"> -->
+      <input class="password-input" v-show="!showPassword" v-model="form.password"  type="password" placeholder="请输入密码">
+      <input class="password-input" v-show="showPassword" @input="handlePassword" v-model="form.password"  type="url" placeholder="请输入密码">
       <div class="show-password" @click="ChangeShowPassword">
         <img v-show="showPassword" src="../static/zhaohuimima_xianshi.png" alt="">
         <img v-show="!showPassword" src="../static/zhaohuimima_yincang.png" alt="">
@@ -30,12 +32,20 @@ import { Indicator,Toast  } from 'mint-ui';
 export default {
   data () {
     return {
-      showPassword:false
+      showPassword:false,
+      form:{
+        phone:'',
+        code:'',
+        password:''
+      }
     }
   },
   methods:{
     ChangeShowPassword(){
       this.showPassword = !this.showPassword
+    },
+    handlePassword(e){
+      this.form.password=this.form.password.replace(/([\u4E00-\u9FA5]|\s)/g,'')
     },
     getCode(){
       Indicator.open({spinnerType:'fading-circle'});

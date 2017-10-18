@@ -20,7 +20,7 @@
       <div class="other-type">
 
         <router-link to="/password_login" class="password-login">密码登陆</router-link>
-        <div class="invite-register">邀请注册</div>
+        <router-link to="/invite_register" class="invite-register">邀请注册</router-link>
       </div>
       <div class="form-button-box">
         <mt-button class="form-button" type="primary" size="large">登陆</mt-button>
