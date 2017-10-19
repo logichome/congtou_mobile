@@ -1,6 +1,6 @@
 <template>
   <div class="goback-nav">
-    <div class="goback-button" @click="goback">
+    <div class="goback-button" @click.stop="goback">
       <img v-show="type != 'white'" src="../assets/images/fanhui_hui.png" alt="">
       <img v-show="type == 'white'" src="../assets/images/fanhui_bai.png" alt="">
     </div>
@@ -15,7 +15,11 @@ export default {
   props:['type'],
   methods:{
     goback(){
-      this.$router.go(-1)
+      if(this.$store.state.transition.routeChain.length <=2 ) {
+        this.$router.push('/')
+      } else {
+        this.$router.go(-1)
+      }
     }
   }
 }

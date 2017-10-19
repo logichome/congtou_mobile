@@ -24,7 +24,10 @@
       </div>
       <div class="form-button-box">
         <mt-button class="form-button" type="primary" size="large">登陆</mt-button>
-        <mt-button class="form-button" type="primary" @click="$router.push('/register')" size="large" plain>注册</mt-button>
+        <router-link to="/register">
+          <mt-button class="form-button" type="primary" size="large" plain>注册</mt-button>
+        </router-link>
+        
       </div>
       <div class="agreement">《葱头社区服务协议》</div>
       <div class="third-login">
