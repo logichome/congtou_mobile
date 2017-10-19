@@ -8,7 +8,7 @@
       <input v-model="inviteCode" type="tel" maxlength="11" placeholder="请输入邀请码">
     </div>
     <div class="submit-box">
-      <mt-button class="form-button" type="primary" size="large">下一步</mt-button>
+      <mt-button class="form-button" @click="$router.push('/login/register_bind_phone')" type="primary" size="large">下一步</mt-button>
     </div>
     <div class="chose-qrcodde-box">
       <div class="chose-qrcodde">
@@ -58,8 +58,10 @@ export default {
 .invite-register
   padding 0.5rem 0.15rem 0
   .title
-    font-size 0.22rem
     margin-bottom 0.2rem
+    h2
+      font-size 0.22rem
+      font-weight bold
   .input-box
     position relative
     height 0.38rem

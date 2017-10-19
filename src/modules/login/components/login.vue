@@ -6,25 +6,25 @@
       </h2>
       <div class="title-text">您的专属“私人管家”</div>
       <div class="logo">
-        <img src="../static/denglu_logo.png" alt="">
+        <img src="../static/imgs/denglu_logo.png" alt="">
       </div>
     </div>
     <div class="content">
       <div class="phone-input-box">
-        <input class="phone-input" type="tel" maxlength="11" placeholder="请输入手机号">
-        <mt-button @click="getCode" class="getcode-button" type="primary" size="normal">获取验证码</mt-button>
+        <input class="phone-input" v-model="form.phone" type="tel" maxlength="11" placeholder="请输入手机号">
+        <mt-button @click="getCode"  class="getcode-button" type="primary" size="normal">获取验证码</mt-button>
       </div>
       <div class="code-input-box">
         <input type="tel" maxlength="4" class="code-input" placeholder="请输入验证码">
       </div>
       <div class="other-type">
 
-        <router-link to="/password_login" class="password-login">密码登陆</router-link>
-        <router-link to="/invite_register" class="invite-register">邀请注册</router-link>
+        <router-link to="/login/password_login" class="password-login">密码登陆</router-link>
+        <router-link to="/login/invite_register" class="invite-register">邀请注册</router-link>
       </div>
       <div class="form-button-box">
-        <mt-button class="form-button" type="primary" size="large">登陆</mt-button>
-        <router-link to="/register">
+        <mt-button class="form-button" type="primary" size="large" @click="submit">登陆</mt-button>
+        <router-link to="/login/register">
           <mt-button class="form-button" type="primary" size="large" plain>注册</mt-button>
         </router-link>
         
@@ -43,9 +43,13 @@
 </template>
 <script>
 import { Indicator,Toast  } from 'mint-ui';
+import { verifyPhone } from '../static/js/form_verification'
 export default {
   data() {
     return {
+      form:{
+        phone:''
+      }
     }
   },
   methods:{
@@ -58,6 +62,9 @@ export default {
         });
         Indicator.close();
       },1000)
+    },
+    submit(){
+      verifyPhone(this.form.phone)
     }
   },
   components: {
@@ -184,12 +191,12 @@ export default {
         width 0.35rem
         background-size contain
         &:nth-of-type(1)
-          background-image url('../static/weixin.png')
+          background-image url('../static/imgs/weixin.png')
           left 0.3rem
         &:nth-of-type(2)
-          background-image url('../static/qq.png')
+          background-image url('../static/imgs/qq.png')
           left 1.55rem
         &:nth-of-type(3)
-          background-image url('../static/weibo.png')
+          background-image url('../static/imgs/weibo.png')
           right 0.3rem
 </style>

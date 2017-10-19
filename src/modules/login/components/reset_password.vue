@@ -1,11 +1,17 @@
 <template>
-  <div class="password-login">
+  <div class="reset-password">
     <goback-nav></goback-nav>
     <div class="title">
-      <h2>用户登陆</h2>
+      <h2>找回密码</h2>
+      <p class="desc">密码至少6位，且包含数字和字母</p>
     </div>
     <div class="input-box">
-      <input type="tel" maxlength="11" placeholder="请输入手机号">
+      <input type="tel" maxlength="11" v-show="resetType === 'phone'" placeholder="请输入手机号">
+      <input type="url" maxlength="11" v-show="resetType === 'email'" placeholder="请输入邮箱地址">
+      <mt-button @click="getCode" class="getcode-button" type="primary" size="normal">获取验证码</mt-button>
+    </div>
+    <div class="input-box">
+      <input type="tel" maxlength="11" placeholder="请输入验证码">
     </div>
     <div class="input-box">
       <input class="password-input" v-show="!showPassword" @input="handlePassword" v-model="form.password"  type="password" placeholder="请输入密码">
@@ -18,19 +24,23 @@
     <div class="submit-box">
       <mt-button class="form-button" type="primary" size="large">下一步</mt-button>
     </div>
-    <div class="reset-password-box">
-      <router-link to="/login/reset_password" class="reset-password">忘记密码</router-link>
+    <div class="reset-type-box">
+      <div class="reset-type" v-show="resetType === 'phone'" @click="resetType='email'">邮箱找回密码</div>
+      <div class="reset-type" v-show="resetType === 'email'" @click="resetType='phone'">手机号找回密码</div>
     </div>
   </div>
 </template>
 <script>
 import gobackNav from '@/components/goback_nav'
+import { Indicator,Toast  } from 'mint-ui';
 export default {
   data () {
     return {
       showPassword:false,
+      resetType:'phone',
       form:{
         phone:'',
+        code:'',
         password:''
       }
     }
@@ -41,6 +51,16 @@ export default {
     },
     handlePassword(e){
       this.form.password=this.form.password.replace(/([\u4E00-\u9FA5]|\s)/g,'')
+    },
+    getCode(){
+      Indicator.open({spinnerType:'fading-circle'});
+      setTimeout(()=>{
+        Toast({
+          message: '已发送验证码',
+          duration:2000
+        });
+        Indicator.close();
+      },1000)
     }
   },
   components:{
@@ -49,13 +69,18 @@ export default {
 }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-.password-login
+.reset-password
   padding 0.5rem 0.15rem 0
   .title
-    margin-bottom 0.2rem
+    margin-bottom 0.15rem
     h2
       font-size 0.22rem
       font-weight bold
+    .desc
+      font-size 0.14rem
+      line-height 0.14rem
+      color #666
+      margin-top 0.07rem
   .input-box
     position relative
     height 0.38rem
@@ -72,6 +97,13 @@ export default {
       padding-right 0.09rem
       font-size 0.14rem
       background-color #F4F4F4
+    .getcode-button
+      position absolute
+      top 0.05rem
+      right 0.05rem
+      width auto
+      height 0.28rem
+      border-radius 0
     .show-password
       position absolute
       top 0
@@ -83,12 +115,12 @@ export default {
         top 50%
         transform translateY(-50%)
         width 100%
-  .reset-password-box
+  .reset-type-box
     position relative
     line-height 0.44rem
     height 0.44rem
     font-size 0.14rem
-    .reset-password
+    .reset-type
       position absolute
       top 0
       right 0
