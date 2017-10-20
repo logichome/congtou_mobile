@@ -6,8 +6,7 @@
     </div>
     <div class="avatar-box">
       <div class="avatar" :style="avatarUrl ? {'background-image':'url('+avatarUrl+')'} : ''">
-        <!-- <img :src="avatarUrl" alt=""> -->
-        <input type="file" accept="image/*" @change="getAvatar" />
+        <input type="file" accept="image/*" @change="getAvatar"/>
       </div>
     </div>
     <div class="sex-box">
@@ -37,13 +36,27 @@ export default {
     }
   },
   methods:{
+    /**
+     * 获取并上传头像
+     */
     getAvatar(e){
       let file = e.target.files[0] || e.dataTransfer.files[0];
       let reader = new FileReader()
       reader.readAsDataURL(file)
-      reader.onload = e => {
-        this.avatarUrl = e.target.result;
+      reader.onload = readerEvent => {
+        this.avatarUrl = readerEvent.target.result;
       }
+      let formData = new FormData();
+      formData.append('file',file);
+      this.$api.login.uploadAvatar(formData,progressEvent => {
+        console.log(progressEvent)
+      })
+        .then(res => {
+          console.log(res)
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   },
   components:{
