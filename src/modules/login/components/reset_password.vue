@@ -5,14 +5,17 @@
       <h2>找回密码</h2>
       <p class="desc">密码至少6位，且包含数字和字母</p>
     </div>
+    <!-- 手机/邮箱输入框 -->
     <div class="input-box">
       <input type="tel" maxlength="11" v-show="resetType === 'phone'" placeholder="请输入手机号">
       <input type="url" maxlength="11" v-show="resetType === 'email'" placeholder="请输入邮箱地址">
       <mt-button @click="getCode" class="getcode-button" type="primary" size="normal">获取验证码</mt-button>
     </div>
+    <!-- 验证码输入框 -->
     <div class="input-box">
       <input type="tel" maxlength="11" placeholder="请输入验证码">
     </div>
+    <!-- 密码输入框 -->
     <div class="input-box">
       <input class="password-input" v-show="!showPassword" @input="handlePassword" v-model="form.password"  type="password" placeholder="请输入密码">
       <input class="password-input" v-show="showPassword" @input="handlePassword" v-model="form.password"  type="url" placeholder="请输入密码">
@@ -21,9 +24,11 @@
         <img v-show="!showPassword" src="../static/imgs/zhaohuimima_yincang.png" alt="">
       </div>
     </div>
+    <!-- 提交按钮 -->
     <div class="submit-box">
       <mt-button class="form-button" type="primary" size="large">下一步</mt-button>
     </div>
+    <!-- 其他找回方式 -->
     <div class="reset-type-box">
       <div class="reset-type" v-show="resetType === 'phone'" @click="resetType='email'">邮箱找回密码</div>
       <div class="reset-type" v-show="resetType === 'email'" @click="resetType='phone'">手机号找回密码</div>
@@ -33,6 +38,7 @@
 <script>
 import gobackNav from '@/components/goback_nav'
 import { Indicator,Toast  } from 'mint-ui';
+import { verifyPhone,verifyCode,verifyPassword } from '../static/js/form_verification'
 export default {
   data () {
     return {
@@ -46,12 +52,21 @@ export default {
     }
   },
   methods:{
+    /**
+     * 更改密码显示方式
+     */
     ChangeShowPassword(){
       this.showPassword = !this.showPassword
     },
+    /**
+     * 处理密码框中文
+     */
     handlePassword(e){
       this.form.password=this.form.password.replace(/([\u4E00-\u9FA5]|\s)/g,'')
     },
+    /**
+     * 获取验证码
+     */
     getCode(){
       Indicator.open({spinnerType:'fading-circle'});
       setTimeout(()=>{
@@ -61,6 +76,12 @@ export default {
         });
         Indicator.close();
       },1000)
+    },
+    /**
+     * 提交表单
+     */
+    submit(){
+
     }
   },
   components:{

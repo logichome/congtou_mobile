@@ -4,13 +4,16 @@
     <div class="title">
       <h2>绑定手机号</h2>
     </div>
+    <!-- 手机号输入框 -->
     <div class="input-box">
-      <input type="tel" maxlength="11" placeholder="请输入手机号">
+      <input type="tel" v-model="form.phone" maxlength="11" placeholder="请输入手机号">
       <mt-button @click="getCode" class="getcode-button" type="primary" size="normal">获取验证码</mt-button>
     </div>
+    <!-- 验证码输入框 -->
     <div class="input-box">
-      <input type="tel" maxlength="11" placeholder="请输入验证码">
+      <input type="tel" v-model="form.code" maxlength="11" placeholder="请输入验证码">
     </div>
+    <!-- 提交按钮 -->
     <div class="submit-box">
       <mt-button class="form-button" @click="$router.push('/login/complete_info')" type="primary" size="large">下一步</mt-button>
     </div>
@@ -18,12 +21,21 @@
 </template>
 <script>
 import gobackNav from '@/components/goback_nav'
+import { Indicator,Toast  } from 'mint-ui';
+import { verifyPhone,verifyCode } from '../static/js/form_verification'
 export default {
   data () {
     return {
+      form:{
+        phone:'',
+        code:''
+      }
     }
   },
   methods:{
+    /**
+     * 获取验证码
+     */
     getCode(){
       Indicator.open({spinnerType:'fading-circle'});
       setTimeout(()=>{
@@ -33,6 +45,13 @@ export default {
         });
         Indicator.close();
       },1000)
+    },
+    /**
+     * 提交表单
+     */
+    submit(){
+      verifyPhone(this.form.phone)
+      verifyCode(this.form.code)
     }
   },
   components:{

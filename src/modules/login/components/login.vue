@@ -1,5 +1,6 @@
 <template>
   <div class="login">
+    <!-- 头部 -->
     <div class="header">
       <h2 class="title">开启智慧社区
         <span class="title-version">5.0</span>
@@ -9,27 +10,32 @@
         <img src="../static/imgs/denglu_logo.png" alt="">
       </div>
     </div>
+    <!-- 内容 -->
     <div class="content">
+      <!-- 手机输入框 -->
       <div class="phone-input-box">
         <input class="phone-input" v-model="form.phone" type="tel" maxlength="11" placeholder="请输入手机号">
-        <mt-button @click="getCode"  class="getcode-button" type="primary" size="normal">获取验证码</mt-button>
+        <mt-button @click="getCode" class="getcode-button" type="primary" size="normal">获取验证码</mt-button>
       </div>
+      <!-- 验证码输入框 -->
       <div class="code-input-box">
-        <input type="tel" maxlength="4" class="code-input" placeholder="请输入验证码">
+        <input type="tel" maxlength="4" v-model="form.code" class="code-input" placeholder="请输入验证码">
       </div>
+      <!-- 其他登陆按钮 -->
       <div class="other-type">
-
         <router-link to="/login/password_login" class="password-login">密码登陆</router-link>
         <router-link to="/login/invite_register" class="invite-register">邀请注册</router-link>
       </div>
+      <!-- 提交按钮 -->
       <div class="form-button-box">
         <mt-button class="form-button" type="primary" size="large" @click="submit">登陆</mt-button>
         <router-link to="/login/register">
           <mt-button class="form-button" type="primary" size="large" plain>注册</mt-button>
         </router-link>
-        
       </div>
+      <!-- 服务协议 -->
       <div class="agreement">《葱头社区服务协议》</div>
+      <!-- 三方登陆 -->
       <div class="third-login">
         <div class="third-login-title">OR</div>
         <div class="third-login-button-box">
@@ -39,21 +45,30 @@
         </div>
       </div>
     </div>
+
   </div>
 </template>
 <script>
 import { Indicator,Toast  } from 'mint-ui';
-import { verifyPhone } from '../static/js/form_verification'
+import { verifyPhone,verifyCode } from '../static/js/form_verification'
 export default {
   data() {
     return {
       form:{
-        phone:''
-      }
+        phone:'',
+        code:''
+      },
+      gettingCode:false,
+      submitLoading:false
     }
   },
   methods:{
+    /**
+     * 获取验证码
+     */
     getCode(){
+      if(!verifyPhone(this.form.phone)) return
+      this.gettingCode = true
       Indicator.open({spinnerType:'fading-circle'});
       setTimeout(()=>{
         Toast({
@@ -63,8 +78,13 @@ export default {
         Indicator.close();
       },1000)
     },
+    /**
+     * 提交登陆表单
+     */
     submit(){
-      verifyPhone(this.form.phone)
+      if (verifyPhone(this.form.phone) && verifyCode(this.form.code)){
+        this.submitLoading = true
+      }
     }
   },
   components: {
