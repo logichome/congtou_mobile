@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <transition :name="transitionName">
       <router-view class="child-view" />
     </transition>
@@ -21,6 +21,10 @@ export default {
 <style lang="stylus" rel="stylesheet/stylus">
 html
   font-size  calc(100vw/3.75);
+.app
+  position absolute
+  width 100%
+  height 100%
 .child-view {
   position absolute
   background-color #fff

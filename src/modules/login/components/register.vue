@@ -71,40 +71,6 @@ export default {
     h2
       font-size 0.22rem
       font-weight bold
-  .input-box
-    position relative
-    height 0.38rem
-    background-color #F4F4F4
-    margin-bottom 0.15rem
-    input
-      position absolute
-      box-sizing border-box
-      top 0
-      left 0
-      height 100%
-      width 100%
-      padding-left 0.09rem
-      padding-right 0.09rem
-      font-size 0.14rem
-      background-color #F4F4F4
-    .getcode-button
-      position absolute
-      top 0.05rem
-      right 0.05rem
-      width auto
-      height 0.28rem
-      border-radius 0
-    .show-password
-      position absolute
-      top 0
-      height 100%
-      right 0.15rem
-      width 0.25rem
-      img
-        position absolute
-        top 50%
-        transform translateY(-50%)
-        width 100%
   .agreement
     line-height 0.14rem
     height 0.14rem

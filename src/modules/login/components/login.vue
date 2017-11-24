@@ -13,12 +13,12 @@
     <!-- 内容 -->
     <div class="content">
       <!-- 手机输入框 -->
-      <div class="phone-input-box">
+      <div class="input-box">
         <input class="phone-input" v-model="form.phone" type="tel" maxlength="11" placeholder="请输入手机号">
         <mt-button @click="getCode" class="getcode-button" type="primary" size="normal">获取验证码</mt-button>
       </div>
       <!-- 验证码输入框 -->
-      <div class="code-input-box">
+      <div class="input-box">
         <input type="tel" maxlength="4" v-model="form.code" class="code-input" placeholder="请输入验证码">
       </div>
       <!-- 其他登陆按钮 -->
@@ -84,6 +84,7 @@ export default {
     submit(){
       if (verifyPhone(this.form.phone) && verifyCode(this.form.code)){
         this.submitLoading = true
+        this.$router.push('/main')
       }
     }
   },
@@ -134,32 +135,6 @@ export default {
 
 .content 
   padding: 0.59rem 0.15rem 0;
-
-  .phone-input-box,
-  .code-input-box
-    position relative
-    height 0.38rem
-    background-color #F4F4F4
-    margin-bottom 0.15rem
-    .phone-input
-    .code-input
-      position absolute
-      box-sizing border-box
-      top 0
-      left 0
-      height 100%
-      width 100%
-      padding-left 0.09rem
-      padding-right 0.09rem
-      font-size 0.14rem
-      background-color #F4F4F4
-    .getcode-button
-      position absolute
-      top 0.05rem
-      right 0.05rem
-      width auto
-      height 0.28rem
-      border-radius 0
   .other-type
     position relative
     line-height 0.14rem

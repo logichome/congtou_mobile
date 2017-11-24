@@ -7,6 +7,7 @@ import store from './vuex/store'
 import api from '@/api'
 import './assets/styles/reset.styl'
 import './assets/styles/mintui_reset.styl'
+import './assets/styles/base_class.styl'
 Vue.config.productionTip = false
 
 import MintUI from 'mint-ui';
