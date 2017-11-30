@@ -84,7 +84,7 @@ export default {
     submit(){
       if (verifyPhone(this.form.phone) && verifyCode(this.form.code)){
         this.submitLoading = true
-        this.$router.push('/main')
+        this.$router.push('/select_community')
       }
     }
   },

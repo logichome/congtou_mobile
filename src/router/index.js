@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import welcome from '@/components/welcome'
 import login from './login'
+import select from './select'
 import main from './main'
 
 import store from '@/vuex/store'
@@ -19,6 +20,7 @@ const router = new Router({
       component: welcome
     },
     ...login,
+    ...select,
     ...main
   ]
 })

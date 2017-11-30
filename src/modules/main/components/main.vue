@@ -1,7 +1,6 @@
 <template>
   <div class="main">
-    123
-    <router-view></router-view>
+    <router-view class="view"></router-view>
     <tab-bar></tab-bar>
   </div>
 </template>
@@ -22,4 +21,10 @@ export default {
   box-sizing border-box
   position relative
   height 100%
+  .view 
+    height 100%
+    width 100%
+    padding-bottom 60px
+    box-sizing border-box
+    overflow-y auto
 </style>

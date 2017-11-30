@@ -4,6 +4,7 @@
       <img v-show="type != 'white'" src="../assets/images/fanhui_hui.png" alt="">
       <img v-show="type == 'white'" src="../assets/images/fanhui_bai.png" alt="">
     </div>
+    <slot></slot>
   </div>
 </template>
 <script>
@@ -12,9 +13,12 @@ export default {
     return {
     }
   },
-  props:['type'],
+  props:['type','url'],
   methods:{
     goback(){
+      if(this.url){
+        return this.$router.push(this.url)
+      }
       if(this.$store.state.transition.routeChain.length <=2 ) {
         this.$router.push('/')
       } else {
