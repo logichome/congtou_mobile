@@ -41,21 +41,19 @@ export default {
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 .tab-bar
   position absolute
-  // overflow hidden
   box-sizing border-box
-  height 49px
+  height 0.49rem
   bottom 0
   width 100%
   a
     display block
     overflow hidden
-    padding-top 4px
-    font-size 12px
+    font-size 0.12rem
     text-align center
-    width 76px
+    width 0.76rem
     img
-      height 30px
-      width 30px
+      height 0.3rem
+      width 0.3rem
     p
       color #666
     img.active
@@ -71,12 +69,12 @@ export default {
     position absolute
     color #666
     left 50%
-    font-size 12px
-    margin-left -25px 
-    margin-top -12px
+    font-size 0.12rem
+    margin-left -0.25rem
+    margin-top -0.12rem
     width 50px
     text-align center
     img
-      width 44px
-      height 44px
+      width 0.44rem
+      height 0.44rem
 </style>

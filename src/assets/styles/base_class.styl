@@ -67,7 +67,11 @@ h5
 .word7
   color: #333 
 
+.has-nav
+  padding-top 40px
 button[type="button1"]
+  display block
+  margin 0 auto
   width 345px
   height 38px
   background-color: #2593cb
@@ -80,6 +84,8 @@ button[type="button1"]
     color: #999
     background-color: #ccc
 button[type="button2"]
+  display block
+  margin 0 auto
   width 345px
   height 38px
   box-sizing: border-box
@@ -90,6 +96,8 @@ button[type="button2"]
   font-size: 14px
 
 button[type="button3"]
+  display block
+  margin 0 auto
   width 345px
   height 38px
   box-sizing: border-box
@@ -100,6 +108,8 @@ button[type="button3"]
   font-size: 14px
 
 button[type="button4"]
+  display block
+  margin 0 auto
   width 345px
   height 38px
   box-sizing: border-box
@@ -110,6 +120,8 @@ button[type="button4"]
   font-size: 14px
 
 button[type="button4"]
+  display block
+  margin 0 auto
   width 345px
   height 38px
   background-color: #ccc
@@ -118,6 +130,8 @@ button[type="button4"]
   font-size: 14px
 
 button[type="button5"]
+  display block
+  margin 0 auto
   width 345px
   height 38px
   background-color: #ccc
@@ -126,6 +140,8 @@ button[type="button5"]
   font-size: 14px
 
 button[type="button6"]
+  display block
+  margin 0 auto
   width 80px
   height 28px
   background-color: #2593cb
@@ -136,6 +152,8 @@ button[type="button6"]
     color: #666
 
 button[type="button7"]
+  display block
+  margin 0 auto
   width 50px
   height 26px
   box-sizing: border-box
@@ -183,20 +201,26 @@ button[type="button7"]
       width 100%
 
 .cells
+  margin-top: 0.15rem
   .cell
     position relative
+    padding-left 0.15rem
+    -webkit-tap-highlight-color:#f4f4f4;
+    &:active
+      background-color #f4f4f4
     .cell-content
       box-sizing border-box
-      border-bottom 1px solid #000
-      line-height 38px
+      border-bottom 1px solid #f4f4f4
+      line-height 0.38rem
+      font-size: 0.14rem
+      color #333
     .cell-ft
       position absolute
       right 0
       top 0
-      // line-height: 38px
-      padding-right: 26px
-      padding-top: 6px
+      padding-right: 0.13rem
+      padding-top: 0.09rem
       img
         display: block
-        height 19px
-        width 19px
+        height 0.19rem
+        width 0.19rem
