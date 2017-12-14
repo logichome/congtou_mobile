@@ -1,5 +1,6 @@
 import main from '@/modules/main/components/main.vue'
 import home from '../modules/home/components/home.vue'
+import homeChildren from './home'
 import community from '../modules/community/components/community.vue'
 import message from '../modules/message/components/message.vue'
 import me from '../modules/me/components/me.vue'
@@ -10,6 +11,7 @@ export default [
     name: 'main',
     component: main,
     children:[
+      ...homeChildren,
       {
         path: '',
         redirect:'home'
@@ -17,7 +19,7 @@ export default [
       {
         path: 'home',
         name: 'home',
-        component: home,
+        component: home
       },
       {
         path: 'community',
