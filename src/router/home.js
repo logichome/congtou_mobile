@@ -1,8 +1,13 @@
 import living from '@/modules/home/components/living.vue'
+import notice from '@/modules/home/components/notice.vue'
 
 export default [
   {
-    path: '/home/living',
+    path: '/main/home/living',
     component: living,
+  },
+  {
+    path: '/main/home/notice',
+    component: notice,
   },
 ]

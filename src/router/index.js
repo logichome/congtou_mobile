@@ -4,6 +4,7 @@ import welcome from '@/components/welcome'
 import login from './login'
 import select from './select'
 import main from './main'
+import home from './home'
 
 import store from '@/vuex/store'
 import {SET_ROUTE_TRANSITION_NAME,ADD_ROUTE_CHAIN,POP_ROUTE_CHAIN} from '@/vuex/mutations_types'
@@ -21,7 +22,8 @@ const router = new Router({
     },
     ...login,
     ...select,
-    ...main
+    ...main,
+    ...home
   ]
 })
 

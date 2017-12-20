@@ -35,6 +35,8 @@ export default {
   top 0
   left 0
   width 100%
+  height 0.4rem
+  background-color #fff
   .goback-button
     position absolute
     top 0

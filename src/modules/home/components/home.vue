@@ -79,7 +79,7 @@
         </div>
         <div class="square-item-text title3 word6">社区商城</div>
       </div>
-      <div class="square-item" @click="$router.push('/home/living')">
+      <div class="square-item" @click="$router.push('/main/home/living')">
         <div class="square-item-img">
           <img src="../static/imgs/shewqushenghuo_shenghuo.png" alt="">
         </div>
@@ -94,7 +94,7 @@
     <div class="notice-title">
       <span>提示：“僵尸车”清理通知提示：“僵尸车”清理通知提示：“僵尸车”清理通知</span>
     </div>
-    <div class="notice-more">
+    <div @click="$router.push('/main/home/notice')" class="notice-more">
       <span>更多</span>
       <img src="../static/imgs/zheye_jinru1.png" alt="">
     </div>
