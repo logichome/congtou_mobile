@@ -91,7 +91,7 @@
     <div class="notice-img">
       <img src="../static/imgs/zhuye_lingdang.png" alt="">
     </div>
-    <div class="notice-title">
+    <div class="notice-title" @click="$router.push('/main/home/notice_detail')">
       <span>提示：“僵尸车”清理通知提示：“僵尸车”清理通知提示：“僵尸车”清理通知</span>
     </div>
     <div @click="$router.push('/main/home/notice')" class="notice-more">
