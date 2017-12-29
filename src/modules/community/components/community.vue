@@ -101,19 +101,23 @@
           </div>
         </div>
       </div>
+
+      <article-list></article-list>
     </div>
 
   </div>
 </template>
 <script>
 import swipe from './swipe'
+import articleList from './article_list'
 export default {
   data () {
     return {
     }
   },
   components:{
-    swipe
+    swipe,
+    articleList
   }
 }
 </script>
