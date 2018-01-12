@@ -273,7 +273,7 @@ export default {
               box-sizing border-box
               bottom 0.08rem
               left 0
-              padding 0 0.1 rem
+              padding 0 0.1rem
               .like
                 position relative
                 padding-left 0.23rem
