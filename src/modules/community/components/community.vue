@@ -116,15 +116,18 @@ export default {
           title:'智慧社区建设情况汇报',
           img:["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513248260787&di=0e73e8c2a9f0d314736dd9e3e04ade08&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fa1%2F95%2Fd%2F105.jpg"],
           author:'葱头社区',
+          summary:'智慧社区APP助力物业公司建设一站式社区服务平台，社区资讯，网上缴费，社区服务保利物业，维科物业',
           time:'12分钟前',
-          comment:'735'
+          comment:'735',
+          type:1
         },
         {
           title:'智慧社区建设情况汇报',
-          img:["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513248260787&di=0e73e8c2a9f0d314736dd9e3e04ade08&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fa1%2F95%2Fd%2F105.jpg","https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513248260787&di=0e73e8c2a9f0d314736dd9e3e04ade08&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fa1%2F95%2Fd%2F105.jpg","https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513248260787&di=0e73e8c2a9f0d314736dd9e3e04ade08&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fa1%2F95%2Fd%2F105.jpg"],
+          img:["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513248260787&di=0e73e8c2a9f0d314736dd9e3e04ade08&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fa1%2F95%2Fd%2F105.jpg"],
           author:'葱头社区',
           time:'12分钟前',
-          comment:'735'
+          comment:'735',
+          type:2
         },
         {
           title:'智慧社区建设情况汇报',
@@ -132,37 +135,9 @@ export default {
           summary:'智慧社区APP助力物业公司建设一站式社区服务平台，社区资讯，网上缴费，社区服务保利物业，维科物业',
           author:'葱头社区',
           time:'12分钟前',
-          comment:'735'
-        },
-        {
-          title:'智慧社区建设情况汇报',
-          img:["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513248260787&di=0e73e8c2a9f0d314736dd9e3e04ade08&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fa1%2F95%2Fd%2F105.jpg"],
-          tag:{
-            text:'广告',
-            color:'blue'
-          },
-          author:'葱头社区',
-          time:'12分钟前',
-          comment:'735'
-        },
-        {
-          title:'智慧社区建设情况汇报',
-          img:["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513248260787&di=0e73e8c2a9f0d314736dd9e3e04ade08&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fa1%2F95%2Fd%2F105.jpg","https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513248260787&di=0e73e8c2a9f0d314736dd9e3e04ade08&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fa1%2F95%2Fd%2F105.jpg"],
-          author:'葱头社区',
-          time:'12分钟前',
-          comment:'735'
-        },
-        {
-          title:'智慧社区建设情况汇报',
-          img:["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513248260787&di=0e73e8c2a9f0d314736dd9e3e04ade08&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fa1%2F95%2Fd%2F105.jpg"],
-          tag:{
-            text:'置顶',
-            color:'red'
-          },
-          author:'葱头社区',
-          time:'12分钟前',
-          comment:'735'
-        },
+          comment:'735',
+          type:3
+        }
       ]
     }
   },
