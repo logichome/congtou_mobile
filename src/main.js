@@ -12,6 +12,7 @@ import './assets/styles/base_class.styl'
 import gobackNav from '@/components/goback_nav'
 import searchInput from '@/components/search_input'
 
+
 Vue.config.productionTip = false
 
 import MintUI from 'mint-ui';
